@@ -1,8 +1,7 @@
 name: git changeover test
-version: 1.0
+version: 1.1
 formatVersion: 1
 
-#I've made an edit.
 inputs:
   test:
     type: object
