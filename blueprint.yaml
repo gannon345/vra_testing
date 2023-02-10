@@ -1,0 +1,25 @@
+name: git changeover test
+version: 1.0
+formatVersion: 1
+
+#I've made an edit.
+inputs:
+  test:
+    type: object
+    title: testing properties
+    $ref: /ref/property-groups/testing_PG
+resources:
+  Cloud_vSphere_Network_1:
+    type: Cloud.vSphere.Network
+    properties:
+      networkType: existing
+  Cloud_vSphere_Machine_1:
+    type: Cloud.vSphere.Machine
+    properties:
+      count: ${input.test.vm_count}
+      name: ${input.test.vm_name}
+      image: centos7
+      cpuCount: ${input.test.cpus}
+      totalMemoryMB: 1024
+      networks:
+        - network: ${resource.Cloud_vSphere_Network_1.id}
